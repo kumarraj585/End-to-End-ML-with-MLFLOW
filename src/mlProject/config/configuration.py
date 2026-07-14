@@ -10,21 +10,21 @@ class ConfigurationManager:
         params_filepath = PARAMS_FILE_PATH,
         schema_filepath = SCHEMA_FILE_PATH):
 
-        # Read your YAML configurations using common.py
+        # 1. Read your configuration YAML files using common.py tools
         self.config = read_yaml(config_filepath)
         self.params = read_yaml(params_filepath)
         self.schema = read_yaml(schema_filepath)
 
-        # Automatically create the root artifacts folder
+        # 2. Automatically create the primary artifacts folder tree
         create_directories([self.config.artifacts_root])
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion
 
-        # Create the specific sub-folder for data ingestion
+        # 3. Create the specific sub-folder for data ingestion
         create_directories([config.root_dir])
 
-        # Pack the values cleanly into your DataIngestionConfig Entity
+        # 4. Bind the values cleanly inside your custom DataIngestionConfig Data Class structure
         data_ingestion_config = DataIngestionConfig(
             root_dir=Path(config.root_dir),
             source_URL=config.source_URL,

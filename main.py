@@ -1,4 +1,5 @@
 from mlProject import logger
+from mlProject.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from mlProject.config.configuration import ConfigurationManager
 from mlProject.components.data_ingestion import DataIngestion
 
