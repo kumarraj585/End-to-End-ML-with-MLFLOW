@@ -1,18 +1,35 @@
 from mlProject import logger
 from mlProject.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
-from mlProject.config.configuration import ConfigurationManager
-from mlProject.components.data_ingestion import DataIngestion
+from mlProject.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
+
 
 STAGE_NAME = "Data Ingestion Stage"
 
 try:
     logger.info(f">>>>>> Stage {STAGE_NAME} started <<<<<<")
-    config = ConfigurationManager()
-    data_ingestion_config = config.get_data_ingestion_config()
-    data_ingestion = DataIngestion(config=data_ingestion_config)
-    data_ingestion.download_file()
-    data_ingestion.extract_zip_file()
+    data_ingestion = DataIngestionTrainingPipeline()
+    data_ingestion.main()
     logger.info(f">>>>>> Stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:
     logger.exception(e)
     raise e
+    
+
+
+STAGE_NAME = "Data Validation Stage"
+
+try:
+    logger.info(f">>>>>> Stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+    data_ingestion = DataValidationTrainingPipeline()
+    data_ingestion.main()
+    logger.info(f">>>>>> Stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+    raise e
+    
+
+
+
+
+
+
