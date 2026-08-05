@@ -145,7 +145,7 @@ $env:MLFLOW_TRACKING_PASSWORD="5a9c9ac10d202f3f2761c73bc264e235a536e0d1"
 
     AWS_REGION = us-east-1
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+    AWS_ECR_LOGIN_URI = demo>>  226086920837.dkr.ecr.ap-southeast-2.amazonaws.com/mlprojj
 
     ECR_REPOSITORY_NAME = simple-app
 
