@@ -93,7 +93,7 @@ jobs:
       - name: Run Docker Image to serve users
         run: |
          docker rm -f mlproj || true
-         docker run -d -p 8080:8080 --name mlproj 226086920837.dkr.ecr.ap-southeast-2.amazonaws.com/mlproj:latest
+         docker run -d -p 8080:8080 --name mlproj 226086920837.dkr.ecr.ap-southeast-2.amazonaws.com/mlprojj
         
           
           
